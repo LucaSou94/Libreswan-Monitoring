@@ -93,7 +93,8 @@ mkdir /var/lib/prometheus
 ### 2) Configurazione di Prometheus:
 ```
 vim /etc/prometheus/prometheus.yml
-
+```
+``` 
 global:
   scrape_interval: 15s
 
