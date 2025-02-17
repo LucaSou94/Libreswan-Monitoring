@@ -74,7 +74,7 @@ else
   echo "libreswan_connection_active 0" > /var/lib/node_exporter/textfile_collector/libreswan_status.prom
 fi
 ```
-2) Rendere eseguibile lo script:
+### 2) Rendere eseguibile lo script:
 ``` 
 chmod +x libreswan_status.sh
 ```
