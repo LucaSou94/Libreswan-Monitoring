@@ -53,7 +53,7 @@ systemctl enable node_exporter
 
 ### 1) Creare uno script che verifichi lo stato delle connessioni LibreSwan e generi una metrica personalizzata.
 ```
-vim /percorso_script/libreswan_status.sh
+vim libreswan_status.sh
 ```
 ``` 
 #!/bin/bash
@@ -70,12 +70,13 @@ fi
 ```
 2) Rendere eseguibile lo script:
 ``` 
-chmod +x /percoso_script/libreswan_status.sh
+chmod +x libreswan_status.sh
 ```
 ##  4. Configurazione di Crontab per Eseguire lo Script Periodicamente
 ```
 crontab -e
-
+```
+``` 
 * * * * * /percoso_script/libreswan_status.sh
 ```
 ## 5. Installazione e Configurazione di Prometheus
@@ -103,6 +104,9 @@ scrape_configs:
    ```
 ### 3) Creazione del Servizio Systemd per Prometheus:
 ```
+vim /etc/systemd/system/prometheus.service
+```
+``` 
 [Unit]
 Description=Prometheus
 Wants=network-online.target
