@@ -12,7 +12,7 @@ Il progetto ha l'obiettivo di monitorare le connessioni IPsec gestite da LibreSw
 - Prometheus installato
 - Grafana installato
 
-1. Installazione di LibreSwan
+### 1. Installazione di LibreSwan
 
 Installa LibreSwan sulla VM Rocky Linux: 
 
