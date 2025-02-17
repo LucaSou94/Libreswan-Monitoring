@@ -30,7 +30,7 @@ mv node_exporter-1.3.1.linux-amd64/node_exporter /usr/local/bin/
 ```
 useradd --no-create-home --shell /bin/false node_exporter
 ```
-### 2) Creazione del Servizio Systemd per Node Exporter:
+### 3) Creazione del Servizio Systemd per Node Exporter:
  ```  
 vim /etc/systemd/system/node_exporter.service
 ```
@@ -49,7 +49,7 @@ RestartSec=10
 [Install]
 WantedBy=default.target
 ```
-### 3) Avviare e Abilitare Node Exporter:
+### 4) Avviare e Abilitare Node Exporter:
 ```   
 systemctl daemon-reload
 systemctl start node_exporter
@@ -137,7 +137,7 @@ ExecStart=/usr/local/bin/prometheus \
 [Install]
 WantedBy=multi-user.target
 ```
-### 4) Avviare e Abilitare Prometheus
+### 5) Avviare e Abilitare Prometheus
  ```  
 systemctl daemon-reload
 systemctl start prometheus
