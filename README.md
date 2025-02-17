@@ -15,9 +15,9 @@ Il progetto ha l'obiettivo di monitorare le connessioni IPsec gestite da LibreSw
 ## 1. Installazione di LibreSwan
 
 ### 1) Installa LibreSwan sulla VM Rocky Linux:
- 
+``` 
 dnf install libreswan-4.15-3.el9.x86_64
-
+```
 ## 2. Installazione di Node Exporter
    
 ### 1) Scarica e Installa Node Exporter:
