@@ -28,7 +28,8 @@ mv node_exporter-1.3.1.linux-amd64/node_exporter /usr/local/bin/
 ### 2) Creazione del Servizio Systemd per Node Exporter:
  ```  
 vim /etc/systemd/system/node_exporter.service
-
+```
+``` 
 [Unit]
 Description=Node Exporter
 Wants=network-online.target
@@ -53,7 +54,8 @@ systemctl enable node_exporter
 ### 1) Creare uno script che verifichi lo stato delle connessioni LibreSwan e generi una metrica personalizzata.
 ```
 vim /percorso_script/libreswan_status.sh
-
+```
+``` 
 #!/bin/bash
 
 # Script che verifica lo stato delle connessioni IPsec
