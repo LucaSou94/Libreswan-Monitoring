@@ -14,17 +14,20 @@ Il progetto ha l'obiettivo di monitorare le connessioni IPsec gestite da LibreSw
 
 ### 1. Installazione di LibreSwan
 
-1) Installa LibreSwan sulla VM Rocky Linux: 
+1) Installa LibreSwan sulla VM Rocky Linux:
+    
    dnf install libreswan-4.15-3.el9.x86_64
 
 ### 2. Installazione di Node Exporter
    
 1) Scarica e Installa Node Exporter:
+   
    wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
    tar xvfz node_exporter-1.3.1.linux-amd64.tar.gz
    sudo mv node_exporter-1.3.1.linux-amd64/node_exporter /usr/local/bin/
 
 2) Creazione del Servizio Systemd per Node Exporter:
+   
    vim /etc/systemd/system/node_exporter.service
 
 [Unit]
@@ -41,6 +44,7 @@ RestartSec=10
 WantedBy=default.target
 
 3) Avviare e Abilitare Node Exporter:
+   
    sudo systemctl daemon-reload
    sudo systemctl start node_exporter
    sudo systemctl enable node_exporter
@@ -73,6 +77,7 @@ crontab -e
 ### 5. Installazione e Configurazione di Prometheus
 
 1) Scarica e Installa Prometheus:
+   
    wget https://github.com/prometheus/prometheus/releases/download/v2.31.1/prometheus-2.31.1.linux-amd64.tar.gz
    tar xvfz prometheus-2.31.1.linux-amd64.tar.gz
    mv prometheus-2.31.1.linux-amd64 /usr/local/bin/prometheus
@@ -93,7 +98,6 @@ scrape_configs:
    
 3) Creazione del Servizio Systemd per Prometheus:
 
-
 [Unit]
 Description=Prometheus
 Wants=network-online.target
@@ -112,6 +116,7 @@ ExecStart=/usr/local/bin/prometheus \
 WantedBy=multi-user.target
 
 4) Avviare e Abilitare Prometheus
+   
    systemctl daemon-reload
    systemctl start prometheus
    systemctl enable prometheus
