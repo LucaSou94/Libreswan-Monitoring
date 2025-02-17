@@ -18,7 +18,7 @@ Installa LibreSwan sulla VM Rocky Linux:
 
 dnf install libreswan-4.15-3.el9.x86_64
 
-2. Installazione di Node Exporter
+### 2. Installazione di Node Exporter
    
 Scarica e Installa Node Exporter:
 
@@ -49,7 +49,7 @@ sudo systemctl daemon-reload
 sudo systemctl start node_exporter
 sudo systemctl enable node_exporter
 
-Creazione dello Script per la Metrica Personalizzata
+### 3. Creazione dello Script per la Metrica Personalizzata
 
 Creare uno script che verifichi lo stato delle connessioni LibreSwan e generi una metrica personalizzata.
 
@@ -69,13 +69,13 @@ Rendere eseguibile lo script:
 
 chmod +x /root/libreswan_status.sh
 
-Configurazione di Crontab per Eseguire lo Script Periodicamente
+###  4. Configurazione di Crontab per Eseguire lo Script Periodicamente
 
 crontab -e
 
 * * * * * /percoso_script/libreswan_status.sh
 
-Installazione e Configurazione di Prometheus
+### 5. Installazione e Configurazione di Prometheus
 
 Scarica e Installa Prometheus:
 
@@ -123,7 +123,15 @@ systemctl daemon-reload
 systemctl start prometheus
 systemctl enable prometheus
 
-Configurazione di Grafana
+### 6. Configurazione di Grafana
+
+Aggiungere un datasource Prometheus che punti al server: 
+
+http://IP-Server:9090
+
+Creare una nuova dashboard e configurare il pannello:
+
+Nel campo Query, inserire libreswan_connection_active
 
 
 
