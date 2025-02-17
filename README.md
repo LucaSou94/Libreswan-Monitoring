@@ -52,6 +52,8 @@ systemctl enable node_exporter
 
 ### 1) Creare uno script che verifichi lo stato delle connessioni LibreSwan e generi una metrica personalizzata.
 ```
+vim /percorso_script/libreswan_status.sh
+
 #!/bin/bash
 
 # Script che verifica lo stato delle connessioni IPsec
@@ -66,7 +68,7 @@ fi
 ```
 2) Rendere eseguibile lo script:
 ``` 
-chmod +x /root/libreswan_status.sh
+chmod +x /percoso_script/libreswan_status.sh
 ```
 ##  4. Configurazione di Crontab per Eseguire lo Script Periodicamente
 ```
