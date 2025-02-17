@@ -6,11 +6,10 @@ Il progetto ha l'obiettivo di monitorare le connessioni IPsec gestite da LibreSw
 
 ## Prerequisiti
 
-- Rocky Linux o una distribuzione equivalente
-- LibreSwan installato
-- Node Exporter installato
-- Prometheus installato
-- Grafana installato
+- Una macchina con Rocky Linux (o distribuzione equivalente)
+- Permessi di root o sudo per eseguire comandi di installazione
+- Connessione a Internet per scaricare i pacchetti necessari
+
 
 ## 1. Installazione di LibreSwan
 
