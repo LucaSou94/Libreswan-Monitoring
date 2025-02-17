@@ -7,7 +7,7 @@ Il progetto ha l'obiettivo di monitorare le connessioni IPsec gestite da LibreSw
 ## Prerequisiti
 
 - Una macchina con Rocky Linux (o distribuzione equivalente)
-- Permessi di root o sudo per eseguire comandi di installazione
+- Permessi di root o sudo
 - Connessione a Internet per scaricare i pacchetti necessari
 
 
