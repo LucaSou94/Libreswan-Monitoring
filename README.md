@@ -47,7 +47,7 @@ restart=always
 RestartSec=10
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
 ```
 ### 4) Avviare e Abilitare Node Exporter:
 ```   
