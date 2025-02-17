@@ -96,7 +96,7 @@ mv prometheus-2.31.1.linux-amd64/promtool   /usr/local/bin/
 mkdir /etc/prometheus
 mkdir /var/lib/prometheus
 ```
-## 2) Creazione utente Prometheus
+### 2) Creazione utente Prometheus
 
 ```
 useradd --no-create-home --shell /bin/false prometheus
