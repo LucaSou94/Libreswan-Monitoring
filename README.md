@@ -23,7 +23,7 @@ dnf install libreswan-4.15-3.el9.x86_64
 ```   
 wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
 tar xvfz node_exporter-1.3.1.linux-amd64.tar.gz
-sudo mv node_exporter-1.3.1.linux-amd64/node_exporter /usr/local/bin/
+mv node_exporter-1.3.1.linux-amd64/node_exporter /usr/local/bin/
 ```
 ### 2) Creazione del Servizio Systemd per Node Exporter:
  ```  
@@ -44,9 +44,9 @@ WantedBy=default.target
 ```
 ### 3) Avviare e Abilitare Node Exporter:
 ```   
-sudo systemctl daemon-reload
-sudo systemctl start node_exporter
-sudo systemctl enable node_exporter
+systemctl daemon-reload
+systemctl start node_exporter
+systemctl enable node_exporter
 ```
 ## 3. Creazione dello Script per la Metrica Personalizzata
 
@@ -80,8 +80,8 @@ crontab -e
 ```   
 wget https://github.com/prometheus/prometheus/releases/download/v2.31.1/prometheus-2.31.1.linux-amd64.tar.gz
 tar xvfz prometheus-2.31.1.linux-amd64.tar.gz
-sudo mv prometheus-2.31.1.linux-amd64/prometheus /usr/local/bin/
-sudo mv prometheus-2.31.1.linux-amd64/promtool   /usr/local/bin/
+mv prometheus-2.31.1.linux-amd64/prometheus /usr/local/bin/
+mv prometheus-2.31.1.linux-amd64/promtool   /usr/local/bin/
 mkdir /etc/prometheus
 mkdir /var/lib/prometheus
 ```
