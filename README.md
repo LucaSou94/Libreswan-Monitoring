@@ -80,7 +80,8 @@ crontab -e
 ```   
 wget https://github.com/prometheus/prometheus/releases/download/v2.31.1/prometheus-2.31.1.linux-amd64.tar.gz
 tar xvfz prometheus-2.31.1.linux-amd64.tar.gz
-mv prometheus-2.31.1.linux-amd64 /usr/local/bin/prometheus
+sudo mv prometheus-2.31.1.linux-amd64/prometheus /usr/local/bin/
+sudo mv prometheus-2.31.1.linux-amd64/promtool   /usr/local/bin/
 mkdir /etc/prometheus
 mkdir /var/lib/prometheus
 ```
