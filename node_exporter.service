@@ -4,9 +4,10 @@ Wants=network-online.target
 After=network.online.target
 
 [Service]
+User=node_exporter
 ExecStart=/usr/local/bin/node_exporter --collector.textfile.directory=/var/lib/node_exporter/textfile_collector
 restart=always
 RestartSec=10
 
 [Install]
-WantedBy=default.targe
+WantedBy=multi-user.targe
