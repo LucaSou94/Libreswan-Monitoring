@@ -4,7 +4,7 @@ Script e configurazioni per monitorare LibreSwan con Prometheus e Grafana.
 Descrizione
 Il progetto ha l'obiettivo di monitorare le connessioni IPsec gestite da LibreSwan, utilizzando node_exporter per raccogliere metriche personalizzate, Prometheus per raccogliere e memorizzare le metriche, e Grafana per visualizzare le metriche in una dashboard interattiva.
 
-Prerequisiti
+#Prerequisiti
 
 - Rocky Linux o una distribuzione equivalente
 - LibreSwan installato
