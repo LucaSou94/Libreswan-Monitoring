@@ -25,6 +25,11 @@ wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_e
 tar xvfz node_exporter-1.3.1.linux-amd64.tar.gz
 mv node_exporter-1.3.1.linux-amd64/node_exporter /usr/local/bin/
 ```
+### 2) Creazione dell'utente node_exporter
+
+```
+useradd --no-create-home --shell /bin/false node_exporter
+```
 ### 2) Creazione del Servizio Systemd per Node Exporter:
  ```  
 vim /etc/systemd/system/node_exporter.service
@@ -36,6 +41,7 @@ Wants=network-online.target
 After=network.online.target
 
 [Service]
+User=node_exporter
 ExecStart=/usr/local/bin/node_exporter --collector.textfile.directory=/var/lib/node_exporter/textfile_collector
 restart=always
 RestartSec=10
@@ -90,7 +96,13 @@ mv prometheus-2.31.1.linux-amd64/promtool   /usr/local/bin/
 mkdir /etc/prometheus
 mkdir /var/lib/prometheus
 ```
-### 2) Configurazione di Prometheus:
+## 2) Creazione utente Prometheus
+
+```
+useradd --no-create-home --shell /bin/false prometheus
+```
+
+### 3) Configurazione di Prometheus:
 ```
 vim /etc/prometheus/prometheus.yml
 ```
@@ -102,8 +114,8 @@ scrape_configs:
   - job_name: 'node_exporter'
     static_configs:
       - targets: ['localhost:9100']
-   ```
-### 3) Creazione del Servizio Systemd per Prometheus:
+```
+### 4) Creazione del Servizio Systemd per Prometheus:
 ```
 vim /etc/systemd/system/prometheus.service
 ```
