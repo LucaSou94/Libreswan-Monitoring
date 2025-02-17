@@ -22,13 +22,13 @@ Il progetto ha l'obiettivo di monitorare le connessioni IPsec gestite da LibreSw
    
 1) Scarica e Installa Node Exporter:
    
-   wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
-   tar xvfz node_exporter-1.3.1.linux-amd64.tar.gz
-   sudo mv node_exporter-1.3.1.linux-amd64/node_exporter /usr/local/bin/
+wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
+tar xvfz node_exporter-1.3.1.linux-amd64.tar.gz
+sudo mv node_exporter-1.3.1.linux-amd64/node_exporter /usr/local/bin/
 
 2) Creazione del Servizio Systemd per Node Exporter:
    
-   vim /etc/systemd/system/node_exporter.service
+vim /etc/systemd/system/node_exporter.service
 
 [Unit]
 Description=Node Exporter
@@ -45,9 +45,9 @@ WantedBy=default.target
 
 3) Avviare e Abilitare Node Exporter:
    
-   sudo systemctl daemon-reload
-   sudo systemctl start node_exporter
-   sudo systemctl enable node_exporter
+sudo systemctl daemon-reload
+sudo systemctl start node_exporter
+sudo systemctl enable node_exporter
 
 ### 3. Creazione dello Script per la Metrica Personalizzata
 
@@ -55,10 +55,10 @@ WantedBy=default.target
 
 #!/bin/bash
 
- script che verifica lo stato delle connessioni IPsec
+script che verifica lo stato delle connessioni IPsec
 status=$(ipsec whack --status)
 
- Verifica lo stato delle connessioni
+Verifica lo stato delle connessioni
 if [[ $status == *"INSTALLED"* ]]; then
   echo "libreswan_connection_active 1" > /var/lib/node_exporter/textfile_collector/libreswan_status.prom
 else
@@ -66,7 +66,8 @@ else
 fi
 
 2) Rendere eseguibile lo script:
-   chmod +x /root/libreswan_status.sh
+ 
+chmod +x /root/libreswan_status.sh
 
 ###  4. Configurazione di Crontab per Eseguire lo Script Periodicamente
 
@@ -78,11 +79,11 @@ crontab -e
 
 1) Scarica e Installa Prometheus:
    
-   wget https://github.com/prometheus/prometheus/releases/download/v2.31.1/prometheus-2.31.1.linux-amd64.tar.gz
-   tar xvfz prometheus-2.31.1.linux-amd64.tar.gz
-   mv prometheus-2.31.1.linux-amd64 /usr/local/bin/prometheus
-   mkdir /etc/prometheus
-   mkdir /var/lib/prometheus
+wget https://github.com/prometheus/prometheus/releases/download/v2.31.1/prometheus-2.31.1.linux-amd64.tar.gz
+tar xvfz prometheus-2.31.1.linux-amd64.tar.gz
+mv prometheus-2.31.1.linux-amd64 /usr/local/bin/prometheus
+mkdir /etc/prometheus
+mkdir /var/lib/prometheus
 
 2) Configurazione di Prometheus:
 
@@ -117,17 +118,19 @@ WantedBy=multi-user.target
 
 4) Avviare e Abilitare Prometheus
    
-   systemctl daemon-reload
-   systemctl start prometheus
-   systemctl enable prometheus
+systemctl daemon-reload
+systemctl start prometheus
+systemctl enable prometheus
 
 ### 6. Configurazione di Grafana
 
-1) Aggiungere un datasource Prometheus che punti al server: 
-   http://IP-Server:9090
+1) Aggiungere un datasource Prometheus che punti al server:
+   
+http://IP-Server:9090
 
 2) Creare una nuova dashboard e configurare il pannello:
-   Nel campo Query, inserire libreswan_connection_active
+   
+Nel campo Query, inserire libreswan_connection_active
 
 
 
